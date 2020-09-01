@@ -1,6 +1,6 @@
 #include <math.h>      // Для функции корня.
 #include <mpi.h>       // Отсюда берем функции для распараллеливания.
-#include <stdlib.h>    /* atoll */
+#include <stdlib.h>    /* atoi */
 
 /*
     Задаем левую границу (LEFT) и правую границу (RIGHT).
@@ -9,8 +9,8 @@
     
     Кроме того, дефайним функцию, которую интегрируем.
 */
-#define LEFT 0
-#define RIGHT 2
+#define LEFT 0.0
+#define RIGHT 2.0
 #define FUNCTION(x) sqrt(4 - x*x)
 
 double function(double x) {
@@ -48,7 +48,7 @@ int main (int argc, char **argv) {
     int N = 1;
     
     // Но если параметр задан, то считываем его.
-    if (argc >= 2) N = atoll(argv[1]);
+    if (argc >= 2) N = atoi(argv[1]);
     
     // Задаем мелкость разбиения отрезка
     double h = (RIGHT - LEFT) / N;
