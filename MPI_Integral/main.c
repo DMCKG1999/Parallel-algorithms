@@ -27,20 +27,19 @@ double trapezoidal_integral(double left, double right, double h) {
         пробегаемся по внутренним точкам и добавляем 
         к интегралу их значения.
     */
-    double Integral = (function(right) - function(left)) / 2; 
+    double integral = (function(right) - function(left)) / 2; 
     do {
-        Integral += function(left);
+        integral += function(left);
         left += h;
     } while (left < right);
         
     // Чтобы получить значение интеграла, необходимо умножить полученную сумму на h.
-    Integral *= h;
+    integral *= h;
     
-    return Integral;
+    return integral;
 }
 
 int main (int argc, char **argv) {
-    
     /* 
         Будем считать, что если не задано число разбиений,
         то мы не разбиваем отрезок на части.
