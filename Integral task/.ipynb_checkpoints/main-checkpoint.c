@@ -82,7 +82,6 @@ int main (int argc, char **argv) {
         for (int i = 1; i < size; i++) {
             double save;
             MPI_Recv(&save, 1, MPI_DOUBLE, i, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-            printf("%d: %.6lf\n", i, save);
             result += save;
         }
         
